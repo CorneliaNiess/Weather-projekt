@@ -44,6 +44,11 @@ function showData(response) {
   console.log(locationDescription);
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = `${locationDescription}`;
+
+  //Updating Location
+  let currentLocation = response.data.name;
+  let cityElement = document.querySelector("h1");
+  cityElement.innerHTML = `${currentLocation}`;
 }
 
 function getCity() {
