@@ -9,12 +9,11 @@ header {
   margin: 10px;
 }
 footer {
-  background: white;
-  border-radius: 10px;
-  /*position: relative;
-  bottom: -65px;*/
+  max-width: 600px;
   text-align: center;
-  margin-right: 30px;
+  margin: 30px auto;
+  padding: 0px;
+  line-height: 0px;
 }
 h1 {
   color: #ffe7d1;
@@ -82,6 +81,15 @@ a:hover {
   font-weight: 400;
   font-size: 15px;
 }
+#picture {
+  background: white;
+  border-radius: 10px;
+  /*position: relative;
+  bottom: -65px;*/
+  text-align: center;
+  margin-right: 30px;
+}
 #note {
-  font-size: 8px;
+  font-size: 12px;
+  text-align: left;
 }

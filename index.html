@@ -9,7 +9,7 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/2741855aad.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="src/styles.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
@@ -54,10 +54,10 @@
                         <a href="#" id="fahrenheit" class="unit"> °F </a>
                     </p>
                     <p id="description"> Cloudy </p>
-                    <footer>
+                    <div id="picture">
                         <small> Take a good book and enjoy the sun</small>
-                        <img src="/images/weatherapp.svg" alt="weather" />
-                    </footer>
+                        <img src="images/weatherapp.svg" alt="weather" />
+                    </div>
                 </div>
 
                 <div class="col-4">
@@ -85,8 +85,10 @@
             </div>
         </div>
     </div>
+<footer>
 <p id="note"> <a href="https://github.com/CorneliaNiess/Weather-projekt"> Open-source </a>coded by Cornelia Niess</p>
-    <script src="src/index.js"></script>
+</footer>
+<script src="src/index.js"></script>
 </body>
 
 </html>
