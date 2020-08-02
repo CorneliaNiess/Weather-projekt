@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homework</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/2741855aad.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="all rounded">
+        <div class="container header">
+            <div class="row">
+                <div class="col-3" id="rome">
+                    Rome
+                </div>
+                <div class="col-3" id="paris">
+                    Paris
+                </div>
+                <div class="col-3" id="Berlin">
+                    Berlin
+                </div>
+                <div class="col-3" id="New York">
+                    New York
+                </div>
+            </div>
+        </div>
+        <header>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter your city" aria-label="City name"
+                    aria-describedby="basic-addon2" id="input-city" />
+                <div class="input-group-append">
+                    <input type="submit" class="input-group-text" id="basic-addon2" value="Search" />
+                    <div class="input-group-append">
+                        <input type="submit" class="input-group-text" id="current-location" value="📍" ; />
+                    </div>
+                </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-8 today">
+                    <strong id="date">Today</strong>
+                    <h1>Hamburg</h1>
+                    <p>
+                        <i class="fas fa-sun"></i> <span id="temperature"> 25 </span>
+                        <a href="#" id="celsius" class="unit"> °C </a>
+                        <span class="unit"> | </span>
+                        <a href="#" id="fahrenheit" class="unit"> °F </a>
+                    </p>
+                    <p id="description"> Cloudy </p>
+                    <footer>
+                        <small> Take a good book and enjoy the sun</small>
+                        <img src="/images/weatherapp.svg" alt="weather" />
+                    </footer>
+                </div>
+
+                <div class="col-4">
+                    <div class="future">
+                        <strong>Tomorrow</strong>
+                        <p><i class="fas fa-cloud-sun"></i> 20°C</p>
+                    </div>
+                    <div class="future">
+                        <strong>Tuesday</strong>
+                        <p><i class="fas fa-cloud-sun"></i> 18°C</p>
+                    </div>
+                    <div class="future">
+                        <strong>Wednesday</strong>
+                        <p><i class="fas fa-cloud-sun"></i>21°C</p>
+                    </div>
+                    <div class="future">
+                        <strong>Thursday</strong>
+                        <p><i class="fas fa-cloud-sun"></i> 24°C</p>
+                    </div>
+                    <div class="future">
+                        <strong>Friday</strong>
+                        <p><i class="fas fa-cloud-sun"></i> 27°C</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="src/index.js"></script>
+</body>
+
+</html>
