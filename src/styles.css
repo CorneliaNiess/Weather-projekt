@@ -92,4 +92,5 @@ a:hover {
 #note {
   font-size: 12px;
   text-align: left;
+  line-height: 0pt;
 }
