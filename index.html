@@ -46,22 +46,23 @@
             <div class="row">
                 <div class="col-8 today">
                     <strong id="date">Today</strong>
-                    <h1>HAM</h1>
-                    <p>
+                    <h1>Loading...</h1>
+                    <p id="dataToday">
+                        <span id="description"> Cloudy </span>
+                        <br>
                         <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" id="icon">                        
                     <span id="temperature"> 25 </span>
                         <a href="#" id="celsius" class="unit"> °C </a>
                         <span class="unit"> | </span>
                         <a href="#" id="fahrenheit" class="unit"> °F </a>
                     </p>
-                    <p id="description"> Cloudy </p>
-                    <div id="picture">
-                        <small> 
+                    <div id="list">
                     <ul>
                         <li id="humidity">Humidity: </li>
                         <li id="windspeed">Windspeed: </li>
+                        <li id="clouds">Cloudiness:</li>
                         </ul>
-                            </small>
+    
                     </div>
              </div>
 
@@ -69,19 +70,19 @@
                     <div class="future">
                         <strong id="dayOne">Tomorrow</strong>
                         <p><img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" id="iconOne">
-                     <span id="tempOne"> 0 </span>°C</p>
+                     <span id="tempOne"> - </span>°C</p>
                     </div>
                     <div class="future">
                         <strong id="dayTwo">Tue</strong>
                         <p>
                             <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" id="iconTwo">
-                            <span id="tempTwo"> 0 </span> °C</p>
+                            <span id="tempTwo"> - </span> °C</p>
                     </div>
                     <div class="future">
                         <strong id="dayThree">Wed</strong>
                         <p>
                             <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" id="iconThree">
-                            <span id="tempThree"> 0 </span> °C</p>
+                            <span id="tempThree"> - </span> °C</p>
                     </div>
                     <div class="future">
                         <strong id="dayFour">Thu</strong>
@@ -89,7 +90,7 @@
                         <p>
                             <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" id="iconFour">
 
-                        <span id="tempFour"> 0 </span>°C</p>
+                        <span id="tempFour"> - </span>°C</p>
                     </div>
                     <div class="future">
                         <strong id="dayFive">Fri</strong>
@@ -97,7 +98,7 @@
 
                         <p>
                             <img src="http://openweathermap.org/img/wn/02d@2x.png" alt="" id="iconFive">
-                            <span id="tempFive"> 0 </span>
+                            <span id="tempFive"> - </span>
                             °C</p>
                     </div>
                 </div>
@@ -105,7 +106,8 @@
         </div>
     </div>
 <footer>
-<p id="note"> <a href="https://github.com/CorneliaNiess/Weather-projekt"> Open-source </a>coded by Cornelia Niess</p>
+    <p  id="note">
+    <a href="https://github.com/CorneliaNiess/Weather-projekt"> Open-source </a>coded by Cornelia Niess </p>
 </footer>
 <script src="src/index.js"></script>
 </body>

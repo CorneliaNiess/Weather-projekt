@@ -20,12 +20,12 @@ function showGeoData(response) {
   //updating Wind
   let currentWindspeed = response.data.wind.speed;
   let windElement = document.querySelector("#windspeed");
-  windElement.innerHTML = `Wind speed: ${currentWindspeed}`;
+  windElement.innerHTML = `Wind speed: ${currentWindspeed} m/s`;
   //updating Humidity
   let currentHumidity = response.data.main.humidity;
   console.log(currentHumidity);
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = `Humidity: ${currentHumidity}`;
+  humidityElement.innerHTML = `Humidity: ${currentHumidity} %`;
   // updating icon
   let icon = response.data.weather[0].icon;
   let iconElement = document.querySelector("#icon");
@@ -33,6 +33,10 @@ function showGeoData(response) {
     "src",
     `http://openweathermap.org/img/wn/${icon}@2x.png`
   );
+  // updating clouds
+  let currentClouds = response.data.clouds.all;
+  let cloudsElement = document.querySelector("#clouds");
+  cloudsElement.innerHTML = `Clouds: ${currentClouds} %`;
 }
 
 function updateForecast(response) {
@@ -40,12 +44,12 @@ function updateForecast(response) {
 
   //Updating temp
   let arrayLength = response.data.list.length;
+
   // Tag 1
   tempOne = response.data.list[arrayLength - 1 - 4 * 8].main.temp;
   console.log("tempOne:");
   console.log(tempOne);
   tempOne = Math.round(tempOne);
-  // let temperatureOneElement = document.querySelector("#tempOne");
   temperatureOneElement.innerHTML = `${tempOne}`;
 
   let iconOne = response.data.list[arrayLength - 1 - 4 * 8].weather[0].icon;
@@ -59,7 +63,6 @@ function updateForecast(response) {
   console.log("tempTwo:");
   console.log(tempTwo);
   tempTwo = Math.round(tempTwo);
-  //  let temperatureTwoElement = document.querySelector("#tempTwo");
   temperatureTwoElement.innerHTML = `${tempTwo}`;
 
   let iconTwo = response.data.list[arrayLength - 1 - 3 * 8].weather[0].icon;
@@ -73,7 +76,6 @@ function updateForecast(response) {
   console.log("tempThree:");
   console.log(tempThree);
   tempThree = Math.round(tempThree);
-  // let temperatureThreeElement = document.querySelector("#tempThree");
   temperatureThreeElement.innerHTML = `${tempThree}`;
 
   let iconThree = response.data.list[arrayLength - 2 * 8 - 1].weather[0].icon;
@@ -87,7 +89,6 @@ function updateForecast(response) {
   console.log("tempFour:");
   console.log(tempFour);
   tempFour = Math.round(tempFour);
-  // let temperatureFourElement = document.querySelector("#tempFour");
   temperatureFourElement.innerHTML = `${tempFour}`;
 
   let iconFour = response.data.list[arrayLength - 1 - 8].weather[0].icon;
@@ -103,7 +104,6 @@ function updateForecast(response) {
   console.log("tempFive:");
   console.log(tempFive);
   tempFive = Math.round(tempFive);
-  // let temperatureFiveElement = document.querySelector("#tempFive");
   temperatureFiveElement.innerHTML = `${tempFive}`;
 
   let iconFive = response.data.list[arrayLength - 1].weather[0].icon;
@@ -133,6 +133,7 @@ function getCity() {
   console.log(input);
   if (input.length > 0) {
     city = input;
+    document.querySelector("#input-city").value = "";
   } else {
     city = city;
   }
@@ -182,6 +183,8 @@ function changeToFahrenheit() {
   temperatureFourElement.innerHTML = Math.round(tempFour * 1.8 + 32);
   temperatureFiveElement.innerHTML = Math.round(tempFive * 1.8 + 32);
 }
+
+window.onload = selectLondon;
 
 let key = "1a987ebb771192a582d4c3490e38c0df";
 let city = null;
@@ -286,5 +289,3 @@ if (dayNumber + 5 > 7) {
   dayFive = days[dayNumber + 5];
 }
 dayFiveElement.innerHTML = `${dayFive}`;
-
-// API Komplett: https://api.openweathermap.org/data/2.5/weather?q=rome&appid=1a987ebb771192a582d4c3490e38c0df&&units=metric"

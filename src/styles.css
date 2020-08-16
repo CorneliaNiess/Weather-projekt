@@ -39,13 +39,17 @@ img {
   width: 30px;
   line-height: 40px;
 }
-li,
 ul {
   list-style: none;
   padding: 20;
   margin: 20;
   text-align: left;
   color: #396362;
+}
+li {
+  padding: 3px;
+  color: #396362;
+  font-size: 12px;
 }
 .header {
   padding: 2px;
@@ -87,20 +91,25 @@ a:hover {
 #description {
   color: #ffe7d1;
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 15px;
+  padding: 0 0 5px 0;
+  margin: 0;
+  line-height: 0;
 }
-#picture {
+#list {
   background: white;
   border-radius: 10px;
   text-align: center;
   margin-right: 30px;
 }
-#foto {
-  float: right;
-}
 #note {
   font-size: 12px;
   text-align: left;
-  line-height: 0pt;
+  line-height: 0px;
+  padding: 0;
+  margin: 0;
+}
+#dataToday {
+  line-height: 0;
 }
