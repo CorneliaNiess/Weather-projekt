@@ -17,17 +17,17 @@
     <div class="all rounded">
         <div class="container header">
             <div class="row">
-                <div class="col-3" id="rome">
-                    Rome
+                <div class="col-3">
+                    <a href="#" id="rome" class="header"> Rome </a> 
                 </div>
-                <div class="col-3" id="paris">
-                    Paris
+                <div class="col-3">
+                <a href="#" id="paris" class="header"> Paris </a>
                 </div>
-                <div class="col-3" id="Berlin">
-                    Berlin
+                <div class="col-3">
+                <a href="#" id="hamburg" class="header"> Hamburg </a>
                 </div>
-                <div class="col-3" id="New York">
-                    New York
+                <div class="col-3">
+                <a href="#" id="london" class="header"> London </a>
                 </div>
             </div>
         </div>
@@ -46,40 +46,59 @@
             <div class="row">
                 <div class="col-8 today">
                     <strong id="date">Today</strong>
-                    <h1>Hamburg</h1>
+                    <h1>HAM</h1>
                     <p>
-                        <i class="fas fa-sun"></i> <span id="temperature"> 25 </span>
+                        <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" id="icon">                        
+                    <span id="temperature"> 25 </span>
                         <a href="#" id="celsius" class="unit"> °C </a>
                         <span class="unit"> | </span>
                         <a href="#" id="fahrenheit" class="unit"> °F </a>
                     </p>
                     <p id="description"> Cloudy </p>
                     <div id="picture">
-                        <small> Take a good book and enjoy the sun</small>
-                        <img src="images/weatherapp.svg" alt="weather" />
+                        <small> 
+                    <ul>
+                        <li id="humidity">Humidity: </li>
+                        <li id="windspeed">Windspeed: </li>
+                        </ul>
+                            </small>
                     </div>
-                </div>
+             </div>
 
                 <div class="col-4">
                     <div class="future">
                         <strong id="dayOne">Tomorrow</strong>
-                        <p><i class="fas fa-cloud-sun" id="iconOne"></i> <span id=tempOne> 20°C </span></p>
+                        <p><img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" id="iconOne">
+                     <span id="tempOne"> 0 </span>°C</p>
                     </div>
                     <div class="future">
-                        <strong id="dayTwo">Tuesday default</strong>
-                        <p><i class="fas fa-cloud-sun"></i> 18°C</p>
+                        <strong id="dayTwo">Tue</strong>
+                        <p>
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" id="iconTwo">
+                            <span id="tempTwo"> 0 </span> °C</p>
                     </div>
                     <div class="future">
                         <strong id="dayThree">Wed</strong>
-                        <p><i class="fas fa-cloud-sun"></i>21°C</p>
+                        <p>
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" id="iconThree">
+                            <span id="tempThree"> 0 </span> °C</p>
                     </div>
                     <div class="future">
                         <strong id="dayFour">Thu</strong>
-                        <p><i class="fas fa-cloud-sun"></i> 24°C</p>
+
+                        <p>
+                            <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" id="iconFour">
+
+                        <span id="tempFour"> 0 </span>°C</p>
                     </div>
                     <div class="future">
                         <strong id="dayFive">Fri</strong>
-                        <p><i class="fas fa-cloud-sun"></i> 27°C</p>
+
+
+                        <p>
+                            <img src="http://openweathermap.org/img/wn/02d@2x.png" alt="" id="iconFive">
+                            <span id="tempFive"> 0 </span>
+                            °C</p>
                     </div>
                 </div>
             </div>

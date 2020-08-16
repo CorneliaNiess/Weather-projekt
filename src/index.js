@@ -1,7 +1,7 @@
 //data of current position
 function showGeoData(response) {
   //Updating temp
-  let temp = response.data.main.temp;
+  temp = response.data.main.temp;
   temp = Math.round(temp);
   console.log(temp);
   let temperatureElement = document.querySelector("#temperature");
@@ -16,19 +16,102 @@ function showGeoData(response) {
   let currentDescription = response.data.weather[0].description;
   let descriptionElement = document.querySelector("#description");
   descriptionElement.innerHTML = `${currentDescription}`;
+
+  //updating Wind
+  let currentWindspeed = response.data.wind.speed;
+  let windElement = document.querySelector("#windspeed");
+  windElement.innerHTML = `Wind speed: ${currentWindspeed}`;
+  //updating Humidity
+  let currentHumidity = response.data.main.humidity;
+  console.log(currentHumidity);
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `Humidity: ${currentHumidity}`;
+  // updating icon
+  let icon = response.data.weather[0].icon;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
 }
 
-function updatingForecast(response) {
-  let tempOne = response.main.data;
-  let iconOne = response.main.data;
-  let tempTwo = response.main.data;
-  let iconTwo = response.main.data;
-  let tempThree = response.main.data;
-  let iconThree = response.main.data;
-  let tempFour = response.main.data;
-  let iconFour = response.main.data;
-  let tempFive = response.main.data;
-  let iconFive = response.main.data;
+function updateForecast(response) {
+  // updating icon
+
+  //Updating temp
+  let arrayLength = response.data.list.length;
+  // Tag 1
+  tempOne = response.data.list[arrayLength - 1 - 4 * 8].main.temp;
+  console.log("tempOne:");
+  console.log(tempOne);
+  tempOne = Math.round(tempOne);
+  // let temperatureOneElement = document.querySelector("#tempOne");
+  temperatureOneElement.innerHTML = `${tempOne}`;
+
+  let iconOne = response.data.list[arrayLength - 1 - 4 * 8].weather[0].icon;
+  let iconOneElement = document.querySelector("#iconOne");
+  iconOneElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconOne}@2x.png`
+  );
+  //Tag 2
+  tempTwo = response.data.list[arrayLength - 1 - 3 * 8].main.temp;
+  console.log("tempTwo:");
+  console.log(tempTwo);
+  tempTwo = Math.round(tempTwo);
+  //  let temperatureTwoElement = document.querySelector("#tempTwo");
+  temperatureTwoElement.innerHTML = `${tempTwo}`;
+
+  let iconTwo = response.data.list[arrayLength - 1 - 3 * 8].weather[0].icon;
+  let iconTwoElement = document.querySelector("#iconTwo");
+  iconTwoElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconTwo}@2x.png`
+  );
+  //Tag 3
+  tempThree = response.data.list[arrayLength - 2 * 8 - 1].main.temp;
+  console.log("tempThree:");
+  console.log(tempThree);
+  tempThree = Math.round(tempThree);
+  // let temperatureThreeElement = document.querySelector("#tempThree");
+  temperatureThreeElement.innerHTML = `${tempThree}`;
+
+  let iconThree = response.data.list[arrayLength - 2 * 8 - 1].weather[0].icon;
+  let iconThreeElement = document.querySelector("#iconThree");
+  iconThreeElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconThree}@2x.png`
+  );
+  //Tag 4
+  tempFour = response.data.list[arrayLength - 1 - 8].main.temp;
+  console.log("tempFour:");
+  console.log(tempFour);
+  tempFour = Math.round(tempFour);
+  // let temperatureFourElement = document.querySelector("#tempFour");
+  temperatureFourElement.innerHTML = `${tempFour}`;
+
+  let iconFour = response.data.list[arrayLength - 1 - 8].weather[0].icon;
+  let iconFourElement = document.querySelector("#iconFour");
+  iconFourElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconFour}@2x.png`
+  );
+  //Tag 5
+  console.log("arrayLength:");
+  console.log(arrayLength);
+  tempFive = response.data.list[arrayLength - 1].main.temp;
+  console.log("tempFive:");
+  console.log(tempFive);
+  tempFive = Math.round(tempFive);
+  // let temperatureFiveElement = document.querySelector("#tempFive");
+  temperatureFiveElement.innerHTML = `${tempFive}`;
+
+  let iconFive = response.data.list[arrayLength - 1].weather[0].icon;
+  let iconFiveElement = document.querySelector("#iconFive");
+  iconFiveElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconFive}@2x.png`
+  );
 }
 
 function showPosition(position) {
@@ -36,7 +119,7 @@ function showPosition(position) {
   longitude = position.coords.longitude;
   geoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&&units=metric`;
   axios.get(geoUrl).then(showGeoData);
-  let forecastGeoUrl = `https://api.openweathermap.org/data/2.5/forecast?lat= ${latitude} &lon=${longitude}&appid=${key}&&units=metric`;
+  let forecastGeoUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${key}&&units=metric`;
   axios.get(forecastGeoUrl).then(updateForecast);
 }
 
@@ -45,67 +128,102 @@ function getPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-//Option2: get input city
-function showData(response) {
-  //update temperature
-  let temp = response.data.main.temp;
-  temp = Math.round(temp);
-  console.log(temp);
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = `${temp}`;
-
-  //update description
-  let locationDescription = response.data.weather[0].description;
-  console.log(locationDescription);
-  let descriptionElement = document.querySelector("#description");
-  descriptionElement.innerHTML = `${locationDescription}`;
-
-  //Updating Location
-  let currentLocation = response.data.name;
-  let cityElement = document.querySelector("h1");
-  cityElement.innerHTML = `${currentLocation}`;
-}
-
 function getCity() {
-  city = document.querySelector("#input-city").value;
+  let input = document.querySelector("#input-city").value;
+  console.log(input);
+  if (input.length > 0) {
+    city = input;
+  } else {
+    city = city;
+  }
   url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&&units=metric`;
-  axios.get(url).then(showData);
+  axios.get(url).then(showGeoData);
   h1.innerHTML = city;
+  forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&&units=metric`;
+  axios.get(forecastUrl).then(updateForecast);
 }
 
-/*change temperature unit 
+function selectRome() {
+  event.preventDefault;
+  city = "Rome";
+  getCity();
+}
+function selectParis() {
+  event.preventDefault;
+  city = "Paris";
+  getCity();
+}
+function selectHamburg() {
+  event.preventDefault;
+  city = "Hamburg";
+  getCity();
+}
+function selectLondon() {
+  event.preventDefault;
+  city = "London";
+  getCity();
+}
+
+//change temperature unit
 
 function changeToCelsius() {
-  temperature.innerHTML = 19;
+  temperature.innerHTML = temp;
+  temperatureOneElement.innerHTML = tempOne;
+  temperatureTwoElement.innerHTML = tempTwo;
+  temperatureThreeElement.innerHTML = tempThree;
+  temperatureFourElement.innerHTML = tempFour;
+  temperatureFiveElement.innerHTML = tempFive;
 }
 function changeToFahrenheit() {
-  temperature.innerHTML = 66;
+  temperature.innerHTML = Math.round(temp * 1.8 + 32);
+  temperatureOneElement.innerHTML = Math.round(tempOne * 1.8 + 32);
+  temperatureTwoElement.innerHTML = Math.round(tempTwo * 1.8 + 32);
+  temperatureThreeElement.innerHTML = Math.round(tempThree * 1.8 + 32);
+  temperatureFourElement.innerHTML = Math.round(tempFour * 1.8 + 32);
+  temperatureFiveElement.innerHTML = Math.round(tempFive * 1.8 + 32);
 }
-*/
 
 let key = "1a987ebb771192a582d4c3490e38c0df";
-let city = "Hamburg";
+let city = null;
 let h1 = document.querySelector("h1");
+let temp = null;
 let searchButton = document.querySelector("#basic-addon2");
 searchButton.addEventListener("click", getCity);
 let currentLocation = document.querySelector("#current-location");
 currentLocation.addEventListener("click", getPosition);
+
 let latitude = 1;
 let longitude = 1;
 let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&&units=metric`;
 let geoUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&&units=metric`;
 let forecastUrl = `api.openweathermap.org / data / 2.5 / forecast ? q = ${city} & appid= ${key}&&units=metric`;
 
-let tempOneElement = document.querySelector("#tempOne");
-let iconOneElement = document.querySelector("#iconeOne");
+let rome = document.querySelector("#rome");
+rome.addEventListener("click", selectRome);
+let paris = document.querySelector("#paris");
+paris.addEventListener("click", selectParis);
+let hamburg = document.querySelector("#hamburg");
+hamburg.addEventListener("click", selectHamburg);
+let london = document.querySelector("#london");
+london.addEventListener("click", selectLondon);
 
-/*let temperature = document.querySelector("#temperature");
+let temperatureOneElement = document.querySelector("#tempOne");
+let temperatureTwoElement = document.querySelector("#tempTwo");
+let temperatureThreeElement = document.querySelector("#tempThree");
+let temperatureFourElement = document.querySelector("#tempFour");
+let temperatureFiveElement = document.querySelector("#tempFive");
+
+let tempOne = null;
+let tempTwo = null;
+let tempThree = null;
+let tempFour = null;
+let tempFive = null;
 
 let celsius = document.querySelector("#celsius");
-//celsius.addEventListener("click", changeToCelsius);
+celsius.addEventListener("click", changeToCelsius);
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", changeToFahrenheit);
-*/
+
 //Date
 let now = new Date();
 let days = [
@@ -129,23 +247,6 @@ date.innerHTML = `${day}, ${hours}:${minutes}`;
 // Upcoming Days
 let dayNumber = now.getDay();
 console.log(dayNumber);
-
-let dayOneElement = document.querySelector("#dayOne");
-console.log(dayOneElement);
-let dayOne = "Monday";
-
-if (dayNumber + 1 > 7) {
-  console.log(dayOneElement);
-  dayOne = days[dayNumber + 1 - 7];
-  console.log(dayOne);
-  dayOneElement.innerHTML = `${dayOne}`;
-} else {
-  dayOne = days[dayNumber + 1];
-  console.log(dayOne);
-  dayOneElement.innerHTML = `${dayOne}`;
-}
-
-dayOneElement.innerHTML = `${dayOne}`;
 
 // Tag 2
 let dayTwoElement = document.querySelector("#dayTwo");
@@ -185,3 +286,5 @@ if (dayNumber + 5 > 7) {
   dayFive = days[dayNumber + 5];
 }
 dayFiveElement.innerHTML = `${dayFive}`;
+
+// API Komplett: https://api.openweathermap.org/data/2.5/weather?q=rome&appid=1a987ebb771192a582d4c3490e38c0df&&units=metric"
